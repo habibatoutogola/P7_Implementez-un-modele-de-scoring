@@ -9,12 +9,11 @@ warnings.filterwarnings('ignore')
 
 app = Flask(__name__)
 
-#with open('lgbmc10_feats_custom.p', 'rb') as f2:
 with open('lgbm_GridCV.p', 'rb') as f2:
     print("utilisation modele lgbm_GridCV")
     grid_lgbm = pickle.load(f2)
 
-df = pd.read_csv('data_scoring.csv', index_col=0)
+df = pd.read_csv('data_scoring', index_col=0)
 df.drop(columns='TARGET', inplace=True)
 num_client = df.SK_ID_CURR.unique()
 
